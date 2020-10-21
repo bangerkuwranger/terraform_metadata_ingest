@@ -1,0 +1,5 @@
+steps:
+- name: 'hashicorp/terraform'
+args: ['init']
+- name: 'hashicorp/terraform'
+args: ['destroy','-var=project_id=${_GCP_PID}','-var=region=${_GCP_REGION}','-var=environment=${_APP_ENV}','-var=application_name=${_APP_NAME}','-var=application_description=${_APP_DESC}','-auto-approve']

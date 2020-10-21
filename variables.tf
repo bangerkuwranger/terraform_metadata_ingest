@@ -1,18 +1,23 @@
+variable "state_bucket" {
+  type        = string
+  description = "GCS bucket name for storing versioned Terraform state files"
+}
+
 variable "project_id" {
-  type = string
+  type        = string
   description = "GCP id value for the target project"
 }
 
 variable "region" {
   type        = string
   description = "Default GCP region value for deploying resources"
-  default     = "us-east-4"
+  default     = "g"
 }
 
 variable "zone" {
   type        = string
   description = "Default GCP zone value for deploying resources"
-  default     = "us-east-4-d"
+  default     = ""
 }
 
 variable "environment" {

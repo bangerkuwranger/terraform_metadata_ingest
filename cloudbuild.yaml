@@ -1,0 +1,14 @@
+steps:
+- name: 'hashicorp/terraform'
+  args: ['init']
+- name: 'hashicorp/terraform'
+  args: ['apply','-var=project_id=${_GCP_PID}','-var=region=${_GCP_REGION}','-var=environment=${_APP_ENV}','-var=application_name=${_APP_NAME}','-var=application_description=${_APP_DESC}','-auto-approve']
+substitutions:
+    _GCP_PID: ''
+    _GCP_REGION: 'us-east-4'
+    _GCP_ZONE: 'us-east-4-d'
+    _APP_ENV: 'd'
+    _APP_NAME: ''
+    _APP_DESC: unused
+options:
+    substitution_option: 'ALLOW_LOOSE'

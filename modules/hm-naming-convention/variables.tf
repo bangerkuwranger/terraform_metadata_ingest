@@ -1,3 +1,35 @@
+variable "region_name_map" {
+  type = "map"
+  default = {
+    US         = "us"
+    us-east1   = "use1"
+    us-east1-b = "use1b"
+    us-east1-c = "use1c"
+    us-east1-d = "use1d"
+    us-east4   = "use4"
+    us-east4-a = "use4a"
+    us-east4-b = "use4b"
+    us-east4-c = "use4c"
+    us-west1   = "usw1"
+    us-west1-a = "usw1a"
+    us-west1-b = "usw1b"
+    us-west1-c = "usw1c"
+    us-west2   = "usw2"
+    us-west2-a = "usw2a"
+    us-west2-b = "usw2b"
+    us-west2-c = "usw2c"
+    us-west3   = "usw3"
+    us-west3-a = "usw3a"
+    us-west3-b = "usw3b"
+    us-west3-c = "usw3c"
+    us-west4   = "usw4"
+    us-west4-a = "usw4a"
+    us-west4-b = "usw4b"
+    us-west4-c = "usw4c"
+    g          = "g"
+  }
+}
+
 variable "cloud_platform" {
   type        = "string"
   description = "Three character id for the cloud platform"
@@ -38,7 +70,7 @@ variable "resource_type" {
 variable "region" {
   type        = "string"
   description = "Region/zone notation for the resource"
-  default     = ""
+  default     = "g"
   validation {
     condition     = var.region.length >= 0 && var.region.region <= 6
     error_message = "The region component of the naming convention must be 0-6 characters."
