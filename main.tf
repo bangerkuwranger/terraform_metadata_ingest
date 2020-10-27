@@ -1,15 +1,15 @@
 terraform {
   required_version = ">= 0.13.4"
   backend "gcs" {
-    bucket  = ${var.state_bucket}
+    bucket  = "${var.state_bucket}"
     prefix  = "terraform/state"
   }
 }
 
 locals {
-	name_region = (var.zone != "" ? var.zone : var.region)
-	bq_region   = (var.environment == "p" ? "US" : local.name_region)
-	gcs_region  = (var.environment == "p" ? "US" : local.name_region)
+  name_region = (var.zone != "" ? var.zone : var.region)
+  bq_region   = (var.environment == "p" ? "US" : local.name_region)
+  gcs_region  = (var.environment == "p" ? "US" : local.name_region)
 }
 
 module "gcs_bucket_name" {
@@ -40,7 +40,7 @@ resource "google_storage_bucket" "ingest_bucket" {
   name          = module.gcs_bucket_name.resource_name
   force_destroy = true
   location      = local.gcs_region
-	lifecycle_rule {
+  lifecycle_rule {
     condition {
       num_newer_versions = 2
     }
@@ -59,7 +59,7 @@ resource "google_storage_bucket" "ingest_bucket" {
     }
   }
   versioning {
-  	enabled = true
+    enabled = true
   }
   uniform_bucket_level_access = true
 }
