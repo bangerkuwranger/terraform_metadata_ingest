@@ -6,7 +6,7 @@ args: ['destroy','-var=project_id=${_GCP_PID}','-var=region=${_GCP_REGION}','-va
 substitutions:
     _GCP_PID: ''
     _GCP_REGION: 'us-east4'
-    _GCP_ZONE: 'us-east4-d'
+    _GCP_ZONE: 'us-east4-b'
     _APP_ENV: 'd'
     _APP_NAME: ''
     _APP_DESC: unused
