@@ -1,7 +1,7 @@
 terraform {
   required_version = ">= 0.13.4"
   backend "gcs" {
-    bucket  = "gcp-metadata-p-csb-us-1zf9"
+    bucket  = "gcp-metadata-p-csbk-us-1zf9"
     prefix  = "terraform/state"
   }
 }
