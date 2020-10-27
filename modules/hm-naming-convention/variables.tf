@@ -92,7 +92,7 @@ variable "name_separator" {
   description = "Single character used as separator for name components"
   default     = "-"
   validation {
-  	condition     = length(var.environment) == 1
+  	condition     = length(var.name_separator) == 1
   	error_message = "The name_separator value must be a single character."
   }
 }
