@@ -8,7 +8,7 @@ terraform {
 
 locals {
   name_region = (var.zone != "" ? var.zone : var.region)
-  bq_region   = (var.environment == "p" ? "US" : local.name_region)
+  bq_region   = (var.environment == "p" ? "US" : var.region)
   gcs_region  = (var.environment == "p" ? "US" : local.name_region)
 }
 
