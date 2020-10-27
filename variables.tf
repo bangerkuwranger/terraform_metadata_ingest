@@ -9,12 +9,6 @@ variable "region" {
   default     = "g"
 }
 
-variable "zone" {
-  type        = string
-  description = "Default GCP zone value for deploying resources"
-  default     = ""
-}
-
 variable "environment" {
   type        = string
   description = "Single character indicating environment"

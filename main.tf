@@ -7,9 +7,7 @@ terraform {
 }
 
 locals {
-  name_region = (var.zone != "" ? var.zone : var.region)
-  bq_region   = (var.environment == "p" ? "US" : var.region)
-  gcs_region  = (var.environment == "p" ? "US" : local.name_region)
+  name_region = (var.environment == "p" ? "US" : var.region)
 }
 
 module "gcs_bucket_name" {
@@ -26,7 +24,7 @@ module "bq_dataset_name" {
   project_name   = var.application_name
   environment    = var.environment
   resource_type  = "bqds"
-  region         = local.bq_region
+  region         = local.name_region
   description    = var.application_description
   name_separator = "_"
 }
@@ -34,13 +32,12 @@ module "bq_dataset_name" {
 provider "google" {
  project    = var.project_id
  region     = var.region
- zone       = var.zone
 }
 
 resource "google_storage_bucket" "ingest_bucket" {
   name          = module.gcs_bucket_name.resource_name
   force_destroy = true
-  location      = local.gcs_region
+  location      = local.name_region
   lifecycle_rule {
     condition {
       num_newer_versions = 2
@@ -69,7 +66,7 @@ resource "google_bigquery_dataset" "dataset" {
   dataset_id                  = module.bq_dataset_name.resource_name
   friendly_name               = "${var.application_name}-${var.environment}-output"
   description                 = "Output dataset for combined, cleaned files"
-  location                    = local.bq_region
+  location                    = local.name_region
   project                     = var.project_id
   delete_contents_on_destroy  = true
 }
