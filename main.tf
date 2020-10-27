@@ -51,7 +51,7 @@ resource "google_storage_bucket" "ingest_bucket" {
   }
   lifecycle_rule {
     condition {
-      matches_storage_class = "ARCHIVE"
+      matches_storage_class = ["ARCHIVE"]
       age = 180
     }
     action {
