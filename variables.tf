@@ -1,8 +1,3 @@
-variable "state_bucket" {
-  type        = string
-  description = "GCS bucket name for storing versioned Terraform state files"
-}
-
 variable "project_id" {
   type        = string
   description = "GCP id value for the target project"

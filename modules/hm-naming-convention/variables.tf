@@ -44,7 +44,7 @@ variable "project_name" {
   type        = string
   description = "Application project name provided by business"
   validation {
-    condition     = var.project_name.length >= 4 && var.project_name.length <= 10
+    condition     = length(var.project_name) >= 4 && length(var.project_name) <= 10
     error_message = "The project_name component of the naming convention must be 4-10 characters."
   }
 }
@@ -62,7 +62,7 @@ variable "resource_type" {
   type        = string
   description = "Resource type notation for the resource"
   validation {
-    condition     = var.resource_type.length >= 3 && var.resource_type.length <= 10
+    condition     = length(var.resource_type) >= 3 && length(var.resource_type) <= 10
     error_message = "The resource_type component of the naming convention must be 3-10 characters."
   }
 }
@@ -72,7 +72,7 @@ variable "region" {
   description = "Region/zone notation for the resource"
   default     = "g"
   validation {
-    condition     = var.region.length >= 0 && var.region.region <= 6
+    condition     = length(var.region) >= 0 && length(var.region) <= 6
     error_message = "The region component of the naming convention must be 0-6 characters."
   }
 }
@@ -82,7 +82,7 @@ variable "description" {
   description = "Optional additional description for the resource"
   default     = ""
   validation {
-    condition     = var.description.length >= 0 && var.description.region <= 10
+    condition     = length(var.description) >= 0 && length(var.description) <= 10
     error_message = "The description component of the naming convention must be 0-10 characters."
   }
 }
