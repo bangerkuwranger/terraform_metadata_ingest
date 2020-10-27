@@ -72,8 +72,8 @@ variable "region" {
   description = "Region/zone notation for the resource"
   default     = "g"
   validation {
-    condition     = length(var.region) >= 0 && length(var.region) <= 6
-    error_message = "The region component of the naming convention must be 0-6 characters."
+    condition     = length(var.region) >= 0 && length(var.region) <= 11
+    error_message = "The region component of the naming convention must be 0-11 characters."
   }
 }
 
