@@ -86,3 +86,13 @@ variable "description" {
     error_message = "The description component of the naming convention must be 0-10 characters."
   }
 }
+
+variable "name_separator" {
+  type        = string
+  description = "Single character used as separator for name components"
+  default     = "-"
+  validation {
+  	condition     = length(var.environment) == 1
+  	error_message = "The name_separator value must be a single character."
+  }
+}

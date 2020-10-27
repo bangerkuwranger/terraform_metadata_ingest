@@ -13,21 +13,22 @@ locals {
 }
 
 module "gcs_bucket_name" {
-  source = "./modules/hm-naming-convention"
-  project_name = var.application_name
-  environment = var.environment
+  source        = "./modules/hm-naming-convention"
+  project_name  = var.application_name
+  environment   = var.environment
   resource_type = "csbk"
-  region = local.name_region
-  description = var.application_description
+  region        = local.name_region
+  description   = var.application_description
 }
 
 module "bq_dataset_name" {
-  source = "./modules/hm-naming-convention"
-  project_name = var.application_name
-  environment = var.environment
-  resource_type = "bqds"
-  region = local.bq_region
-  description = var.application_description
+  source         = "./modules/hm-naming-convention"
+  project_name   = var.application_name
+  environment    = var.environment
+  resource_type  = "bqds"
+  region         = local.bq_region
+  description    = var.application_description
+  name_separator = "_"
 }
 
 provider "google" {

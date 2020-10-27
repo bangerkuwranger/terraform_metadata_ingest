@@ -9,6 +9,6 @@ substitutions:
     _GCP_ZONE: 'us-east4-b'
     _APP_ENV: 'd'
     _APP_NAME: ''
-    _APP_DESC: unused
+    _APP_DESC: ''
 options:
     substitution_option: 'ALLOW_LOOSE'
