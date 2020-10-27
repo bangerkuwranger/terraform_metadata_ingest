@@ -21,7 +21,7 @@ variable "zone" {
 }
 
 variable "environment" {
-  type        = "string"
+  type        = string
   description = "Single character indicating environment"
   default     = "d"
   validation {
@@ -31,12 +31,12 @@ variable "environment" {
 }
 
 variable "application_name" {
-  type        = "string"
+  type        = string
   description = "Application name provided by business"
 }
 
 variable "application_description" {
-  type        = "string"
+  type        = string
   description = "Optional description to differentiate deployed resources"
   default     = ""
 }

@@ -1,5 +1,5 @@
 variable "region_name_map" {
-  type = "map"
+  type    = map
   default = {
     US         = "us"
     us-east1   = "use1"
@@ -31,7 +31,7 @@ variable "region_name_map" {
 }
 
 variable "cloud_platform" {
-  type        = "string"
+  type        = string
   description = "Three character id for the cloud platform"
   default     = "gcp"
   validation {
@@ -41,7 +41,7 @@ variable "cloud_platform" {
 }
 
 variable "project_name" {
-  type        = "string"
+  type        = string
   description = "Application project name provided by business"
   validation {
     condition     = var.project_name.length >= 4 && var.project_name.length <= 10
@@ -50,7 +50,7 @@ variable "project_name" {
 }
 
 variable "environment" {
-  type        = "string"
+  type        = string
   description = "Environment value for the resource"
   validation {
     condition     = var.environment == "d" || var.environment == "l" || var.environment == "p" || var.environment == "q" || var.environment == "s" || var.environment == "t"
@@ -59,7 +59,7 @@ variable "environment" {
 }
 
 variable "resource_type" {
-  type        = "string"
+  type        = string
   description = "Resource type notation for the resource"
   validation {
     condition     = var.resource_type.length >= 3 && var.resource_type.length <= 10
@@ -68,7 +68,7 @@ variable "resource_type" {
 }
 
 variable "region" {
-  type        = "string"
+  type        = string
   description = "Region/zone notation for the resource"
   default     = "g"
   validation {
@@ -78,7 +78,7 @@ variable "region" {
 }
 
 variable "description" {
-  type        = "string"
+  type        = string
   description = "Optional additional description for the resource"
   default     = ""
   validation {
