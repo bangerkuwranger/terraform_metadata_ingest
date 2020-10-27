@@ -1,6 +1,6 @@
 locals {
   region_final = var.region_name_map[${var.region}]
-  desc_final = (var.description != "" ? ${var.description}- : "")
+  desc_final = (var.description != "" ? "${var.description}-" : "")
 }
 
 output "resource_name" {
